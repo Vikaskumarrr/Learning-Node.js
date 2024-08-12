@@ -1,32 +1,59 @@
 const express = require('express')
+
+const fun = (req , res , next) =>{ 
+    console.log("hii1");
+    next();
+}
+
+const fun2 = (req , res , next) =>{ 
+    console.log("hii 2 ");
+    next();
+}
+
 const app = express();
 
-// Creating the api 
+app.use(express.urlencoded({ extended: true })); // Globale middleware
 
-app.get('/home',(req , res)=>{ 
-    console.log("hii from api");
-    return res.send("Server is up and running....")
+
+app.get('/',(req ,  res)=>{ 
+    return res.send("Server is up and running..")
+})
+ 
+app.get('/get-form' , (req , res) =>{ 
+    return res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>User Form</h1>
+    <form action='/create-user' method='POST'>
+        <label>name <input type="text" placeholder="username"></label><br>
+        <label>"username" <input type="email" placeholder="email"></label><br>
+        <label>"password" <input type="password" placeholder="username"></label><br>
+        <button type="submit">submit</button>
+        
+    </form>
+
+</body>
+</html>`);
+});
+
+
+
+app.post("/create-user" , (req, res)=>{ 
+    console.log(req.body)
+    return res.send("form submit succesfully");
+});
+
+app.get('/dashbord' , fun , fun2,  (req, res)=>{ 
+    console.log("hii 3");
+    return res.send("Middleware is working..")
 })
 
-// Making the query 
-
-app.get('/api' , (req, res)=>{ 
-    console.log(req.query);
-    // console.log(req.query.key.split(","));
-    return res.send("Query is working..")
-})
-
-// params 
-app.get('/profile/:api1' , (req , res)=>{ 
-    console.log(req.params);
-return res.send("param are shwoing..")
-})
-
-app.get('/profile/:api1/:api2' , (req , res)=>{ 
-        console.log(req.params);
-    return res.send("param are shwoing..")
-})
-
-app.listen(8000 ,()=>{ 
-    console.log("Server is runing on PORT:8000");
+app.listen(8001 , () =>{ 
+    console.log("Server is running on PORT:8001")
 });

@@ -1,0 +1,52 @@
+NPM ==>
+
+1. Intro to NPM (node packege manager)
+2. NPM is default packege manager for Node.js
+3. Install  , manage , or Publish 
+4. Command for initilization npm init || npm init -y
+    npm i , npm unistall
+
+
+===> Differance between NPM and NPX 
+
+-->  npx is a tool that comes with npm 
+--> you don't want to install the packege localy or globally
+    or as an project dependances
+
+
+==> Package.json -> is kind of blueprint 
+
+--> metadata of any project Intro
+--> to keep the save working 
+
+--> dependencies : { 
+    express : "^343:34" 
+    nodemon : "xyz"
+}
+
+->> If you dont want to update then you have to remove ^ sign
+
+==> ES5
+
+--> Improt and exports statement in ES5
+
+-> import -> const express = require("express")
+             const fun = require('../../node/fav')
+
+-> Exprot -> module.export = fun  ; 
+            module.export = {fun1, fun2, fun3}
+
+
+==> Express 
+
+-->  framework for Node.js
+--> Creating all the api used for web and mobile app 
+--> open 
+--> effficent , Economical 
+
+=> feauters 
+
+--> middleaware -> are two type first one is global -> for example (app.use )
+                            secound one is specific -> for example (app.get('/endpoint' , fun() , (req , res)=>{}))
+-> Roating 
+
