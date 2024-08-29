@@ -1,18 +1,20 @@
 {
-  "name": "lec-2",
+  "name": "lec-4",
   "version": "1.0.0",
-  "main": "models.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
+    "connect-mongodb-session": "^5.0.0",
     "express": "^4.19.2",
-    "gulp": "^5.0.0",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.5.3",
+    "node": "^22.6.0",
     "nodemon": "^3.1.4"
-  },
-  "description": ""
+  }
 }
